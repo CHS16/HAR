@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: motionsense-har
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "5000"
+      - key: USE_MOCK_DB
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
